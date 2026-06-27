@@ -1,4 +1,9 @@
+
 import random
+print("Introduction:
+This is a Python program in which the computer randomly chooses a number between1 and 100. The player has to guess the correct number. After each guess, the
+program gives hints such as "Too High", "Too Low", or "Near" until the correct
+number is found.")
 
 x = random.randint(1,100)
 
