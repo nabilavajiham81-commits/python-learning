@@ -1,0 +1,91 @@
+print("\nWelcome to the Student Marks Analysis System!")
+print("\nThis program is designed to:")
+print("1. Collect marks for five subjects.")
+print("2. Validate marks between 0 and 100.")
+print("3. Calculate total marks, average, and percentage.")
+print("4. Assign grades based on total marks.")
+print("5. Identify the student with the highest total marks.")
+
+print("\nMaximum marks per subject: 100")
+print("Total number of subjects: 5")
+print("Maximum total marks: 500")
+x = []
+total = []
+
+y = int(input("How many students are there: "))
+
+for i in range(1, y + 1):
+    print("\nEnter marks for student:", i)
+
+    m = int(input("Enter Mathematics mark: "))
+    while m < 0 or m > 100:
+        print("Marks must be between 0 and 100")
+        m = int(input("Enter Mathematics mark again: "))
+
+    p = int(input("Enter Physics mark: "))
+    while p < 0 or p > 100:
+        print("Marks must be between 0 and 100")
+        p = int(input("Enter Physics mark again: "))
+
+    c = int(input("Enter Chemistry mark: "))
+    while c < 0 or c > 100:
+        print("Marks must be between 0 and 100")
+        c = int(input("Enter Chemistry mark again: "))
+
+    cs = int(input("Enter Computer Science mark: "))
+    while cs < 0 or cs > 100:
+        print("Marks must be between 0 and 100")
+        cs = int(input("Enter Computer Science mark again: "))
+
+    e = int(input("Enter English mark: "))
+    while e < 0 or e > 100:
+        print("Marks must be between 0 and 100")
+        e = int(input("Enter English mark again: "))
+
+    sj = [m, p, c, cs, e]
+
+    to = sum(sj)
+    avg = to / 5
+    per = (to / 500) * 100
+
+    sj.extend([to, avg, per])
+    x.append(sj)
+    total.append(to)
+
+    print("Marks:", [m, p, c, cs, e])
+    print("Total:", to, "/ 500")
+    print("Average:", avg)
+    print("Percentage:", per, "%")
+
+print("\nStudent Results")
+
+for k in range(len(total)):
+    if total[k] >= 487.5:
+        grade = "A+"
+    elif total[k] >= 475:
+        grade = "A"
+    elif total[k] >= 462.5:
+        grade = "B+"
+    elif total[k] >= 450:
+        grade = "B"
+    elif total[k] >= 437.5:
+        grade = "C"
+    elif total[k] >= 375:
+        grade = "D"
+    elif total[k] >= 312.5:
+        grade = "E"
+    elif total[k] >= 250:
+        grade = "F"
+    else:
+        grade = "FAIL"
+
+    print("Student", k + 1,
+          "Total:", total[k],
+          "Percentage:", (total[k] / 500) * 100,
+          "Grade:", grade)
+
+highest = max(total)
+student = total.index(highest)
+
+print("\nHighest Total Marks:", highest)
+print("Student", student + 1, "scored the highest marks.")
